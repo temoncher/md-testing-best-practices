@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-restricted-imports": [
+      1,
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message":
+              "Please use individual imports to reduce bundle size. `import groupBy from 'lodash/groupBy'`, for information https://www.blazemeter.com/blog/the-correct-way-to-import-lodash-libraries-a-benchmark"
+          },
+          {
+            "name": "./01.mocks",
+            "importNames": ["fetchBooks"],
+            "message": "This version of fetchBooks is deprecated, please use a new one!"
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      1,
+      {
+        "selector": "CallExpression[callee.name='useState'][arguments.0.value=true]", // TODO: figure out why `/(true|false)/` regex isn't working
+        "message": "Please consider using `useBoolean` instead"
+      },
+      {
+        "selector": "CallExpression[callee.name='useState'][arguments.0.value=false]",
+        "message": "Please consider using `useBoolean` instead"
+      }
+    ]
+  }
+}
