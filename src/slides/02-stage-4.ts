@@ -20,7 +20,7 @@ export const getFeaturedBookNamesByAuthor = (deps: GetFeaturedBookNamesByAuthorD
 
   const featuredStatuses = await Promise.all(fulfilledBooks.map((book) => deps.fetchIsFeatured(book.id)));
 
-  const booksWithStatuses = zipWith(fulfilledBooks, featuredStatuses, (book, featuredStatus) => ({
+  const booksWithStatuses = zipWith(fulfilledBooks, featuredStatuses, (book, featuredStatus): Book => ({
     ...book,
     isFeatured: featuredStatus,
   }));

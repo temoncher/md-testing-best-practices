@@ -40,8 +40,8 @@ it.skip('should get book names by author', async () => {
   const showErrorNotificationMock = jest.fn();
   const getBookNames = getFeaturedBookNamesByAuthor({
     showErrorNotification: showErrorNotificationMock,
-    fetchBook: jest.fn().mockImplementation((id) => bookStore[id]),
-    fetchIsFeatured: jest.fn().mockImplementation((id) => featuredBooksStore[id]),
+    fetchBook: (id) => bookStore[id],
+    fetchIsFeatured: (id) => featuredBooksStore[id],
   });
 
   const bookNames = await getBookNames(Object.keys(bookStoreMock));
