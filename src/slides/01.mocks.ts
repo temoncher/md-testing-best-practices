@@ -36,15 +36,21 @@ const allBooksWithAuthors: unknown[] = [
   ...programmingBooksWithAuthors,
 ];
 
-
-export const fetchBooks = (options: any) => {
-  if (options.onlyProgrammingBooks) {
-    return Promise.resolve(options.includeAuthors ? programmingBooksWithAuthors : programmingBooks);
+/**
+ * Fetches books from the server
+ * @param options.onlyProgrammingBooks - to retreive only programming books
+ * @param options.onlyCookingBooks - to retreive only cooking books
+ * @param options.includeAuthors - to add book author to each book
+ * @returns list of books promise
+ */
+export const fetchBooks = (options?: any) => {
+  if (options?.onlyProgrammingBooks) {
+    return Promise.resolve(options?.includeAuthors ? programmingBooksWithAuthors : programmingBooks);
   }
 
-  if (options.onlyCookingBooks) {
-    return Promise.resolve(options.includeAuthors ? cookingBooksWithAuthors : cookingBooks);
+  if (options?.onlyCookingBooks) {
+    return Promise.resolve(options?.includeAuthors ? cookingBooksWithAuthors : cookingBooks);
   }
 
-  return Promise.resolve(options.includeAuthors ? allBooksWithAuthors : allBooks);
+  return Promise.resolve(options?.includeAuthors ? allBooksWithAuthors : allBooks);
 };

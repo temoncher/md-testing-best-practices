@@ -1,5 +1,9 @@
 import { fetchBooks } from './01.mocks';
 
-const getBooks = (options: any) => {
-  return fetchBooks(options);
+const logBooks = async () => {
+  const books = await fetchBooks();
+
+  console.log(books);
 };
+
+void logBooks();

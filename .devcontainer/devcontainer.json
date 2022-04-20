@@ -20,7 +20,8 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"wallabyjs.quokka-vscode",
-		"wallabyjs.wallaby-vscode"
+		"wallabyjs.wallaby-vscode",
+		"will-wow.vscode-alternate-file"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
