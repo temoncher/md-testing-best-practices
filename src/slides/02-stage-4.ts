@@ -9,8 +9,8 @@ const isFulfilled = <T>(res: PromiseSettledResult<T>): res is PromiseFulfilledRe
 
 type GetFeaturedBookNamesByAuthorDependencies = {
   showErrorNotification: (reason: string) => void;
-  fetchBook: (bookId: string) => Book;
-  fetchIsFeatured: (bookId: string) => boolean;
+  fetchBook: (bookId: string) => Promise<Book>;
+  fetchIsFeatured: (bookId: string) => Promise<boolean>;
 };
 
 export const getFeaturedBookNamesByAuthor = (deps: GetFeaturedBookNamesByAuthorDependencies) => async (bookIds: string[]) => {
